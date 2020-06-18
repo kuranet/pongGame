@@ -29,7 +29,7 @@ public class PlayerAI : Player
                 transform.position = Vector3.Lerp(transform.position, pos, 0.5f);
             }
             //Debug.Log(transform.position);
-        } 
+        }
     }
 
     public override void OnCollisionEnter2D(Collision2D collision)

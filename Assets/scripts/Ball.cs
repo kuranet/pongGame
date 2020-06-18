@@ -19,7 +19,7 @@ public class Ball : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
             gameObject.tag = "Moving";
         // Move the ball every frame
-        if (gameObject.tag == "Moving")
+        if (gameObject.CompareTag("Moving"))
         {
             transform.Translate(direction * speed);
         }

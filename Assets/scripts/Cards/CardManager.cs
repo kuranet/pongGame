@@ -1,65 +1,41 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections.Generic;
+using TMPro;
 
 public class CardManager : MonoBehaviour
 {
-    [SerializeField] List<GameObject> cardsInQueue;
-    int indexOfUpdatingCard;
-    // Start is called before the first frame update
-    void Start()
-    {
-        indexOfUpdatingCard = 0;
-        cardsInQueue[indexOfUpdatingCard].GetComponent<Card>().status = "Updating";
-        RunTimer(indexOfUpdatingCard);
-    }
+    public string status = "Waiting";
+    [SerializeField] public GameObject waiting;
+    [SerializeField] public GameObject activated;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] public List<CardInfo> activationInfoList;
+
+    public AnimationController controller;
+    public TextMeshProUGUI description;
+    public TextMeshProUGUI time;
+
+    private void OnMouseDown()
     {
-        if(cardsInQueue[indexOfUpdatingCard].GetComponent<Card>().waiting.GetComponent<CardTimer>().timer.Finished)
+        if(status.Equals("Active"))
         {
-            for(int i = 0; i< cardsInQueue.Count;i++)
-                if (cardsInQueue[i].GetComponent<Card>().status.Equals("Waiting"))
-                {
-                    cardsInQueue[i].GetComponent<Card>().status = "Updating";
-                    RunTimer(i);
-                    indexOfUpdatingCard = i;
-                    Debug.Log(i);
-                    break;
-                }
-            //bool findToUpdate = false;
-            //int i = indexOfUpdatingCard;
-            //if (i == cardsInQueue.Count - 1)
-            //    i = 0;
-            //else
-            //    i++;
-            //while (!findToUpdate) 
-            //{
-            //    if (cardsInQueue[i].GetComponent<Card>().status.Equals("Waiting"))
-            //    {
-            //        cardsInQueue[i].GetComponent<Card>().status = "Updating";
-            //        RunTimer(i);
-            //        indexOfUpdatingCard = i;
-            //        findToUpdate = true;
-            //        Debug.Log(i);
-            //    }
-            //    else 
-            //    {
-            //        Debug.Log(i);
-            //        if (i == cardsInQueue.Count - 1)
-            //            i = 0;
-            //        else if (i == indexOfUpdatingCard)
-            //            findToUpdate = true;
-            //        else
-            //            i++;
-            //        Debug.LogWarning(i);
-            //    }
-            //}
-        }        
+            Debug.Log("KlikitiKlik");
+            waiting.SetActive(true);
+            activated.SetActive(false);
+            status = "Waiting";
+        }
+
     }
-    void RunTimer(int i)
+    public void Activation()
     {
-        cardsInQueue[i].GetComponent<Card>().waiting.GetComponent<CardTimer>().timer.Run();
+        status = "Active";
+
+        CardInfo activationInfo = activationInfoList[Random.Range(0, activationInfoList.Count-1)];
+
+        controller.anim = activationInfo.animation;
+        description.text = activationInfo.description;
+        time.text = activationInfo.time.ToString();
+
+        waiting.SetActive(false);
+        activated.SetActive(true);
     }
-    
 }
