@@ -9,4 +9,5 @@ public class CardInfo : ScriptableObject
     public AnimationClip animation;
     public string description;
     public float time;
+
 }

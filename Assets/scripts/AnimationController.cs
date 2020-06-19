@@ -18,7 +18,7 @@ public class AnimationController : MonoBehaviour
         string name = "Name";
         animator.AddClip(anim, name);
         animator.Play(name);
-        //animator.RemoveClip(name);
         Debug.Log("I'm awake");
     }
+
 }

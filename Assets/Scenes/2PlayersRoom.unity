@@ -1926,6 +1926,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player AI
       objectReference: {fileID: 0}
+    - target: {fileID: 6390370066519291170, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_TagString
+      value: AI
+      objectReference: {fileID: 0}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2128,11 +2133,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3804979927073069118, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 2059753072}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2203,6 +2203,11 @@ PrefabInstance:
       propertyPath: ScoreUI
       value: 
       objectReference: {fileID: 1296971317}
+    - target: {fileID: 3804979927073069118, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 2059753072}
     - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_Color.r

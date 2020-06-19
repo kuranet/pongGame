@@ -3,7 +3,7 @@
 public class Player : MonoBehaviour
 {
     [SerializeField] public PlayersData data;
-    
+    protected float sideOfCollisison;
     public int Points
     {
         get
@@ -30,20 +30,38 @@ public class Player : MonoBehaviour
         float movement;
 
         if (transform.rotation.z == 0)
+        {
             movement = Input.GetAxis("Player1");
+            Moving(movement, sideOfCollisison);
+        }
         else
+        {
             movement = Input.GetAxis("Player2");
-        //Debug.Log(Speed * movement * Time.deltaTime);  
+            Moving(movement, sideOfCollisison);
+        }
+        
+    }
+    void Moving(float movement, float pos)
+    {
         if (data.shouldmove)
             transform.Translate(0, PlayersData.SPEED * movement * Time.deltaTime, 0);
         else
-            transform.Translate(0, - PlayersData.SPEED * movement * Time.deltaTime, 0);
+        {
+            Debug.Log(movement + "  :  " + (sideOfCollisison - pos));
+            if (movement * (sideOfCollisison - transform.position.y) > 0)
+                transform.Translate(0, -0.3f * PlayersData.SPEED * movement * Time.deltaTime, 0);
+            else
+                transform.Translate(0, 0.3f * PlayersData.SPEED * movement * Time.deltaTime, 0);
+        }
     }
-
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("Collision!");
         data.shouldmove = false;
+        if (transform.rotation.z == 0)
+            sideOfCollisison = collision.gameObject.transform.position.y;
+        else
+            sideOfCollisison = collision.gameObject.transform.position.x;
     }
     protected void OnCollisionExit2D(Collision2D collision)
     {

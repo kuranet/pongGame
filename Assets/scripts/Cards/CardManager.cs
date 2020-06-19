@@ -10,6 +10,8 @@ public class CardManager : MonoBehaviour
 
     [SerializeField] public List<CardInfo> activationInfoList;
 
+    CardInfo currentCard;
+
     public AnimationController controller;
     public TextMeshProUGUI description;
     public TextMeshProUGUI time;
@@ -20,16 +22,28 @@ public class CardManager : MonoBehaviour
         {
             Debug.Log("KlikitiKlik");
             waiting.SetActive(true);
+
+            switch (currentCard.cardName)
+            {
+                case "Freeze":
+                    {
+                        FreezeScript scriptSettings = activated.transform.parent.gameObject.AddComponent<FreezeScript>();
+                        scriptSettings.time = currentCard.time;
+                    }
+                    break;
+            }
+
             activated.SetActive(false);
             status = "Waiting";
         }
-
     }
     public void Activation()
     {
         status = "Active";
+        
+        CardInfo activationInfo = activationInfoList[Random.Range(0, activationInfoList.Count - 1)];
 
-        CardInfo activationInfo = activationInfoList[Random.Range(0, activationInfoList.Count-1)];
+        currentCard = activationInfo;
 
         controller.anim = activationInfo.animation;
         description.text = activationInfo.description;

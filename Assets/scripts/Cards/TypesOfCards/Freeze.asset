@@ -15,4 +15,4 @@ MonoBehaviour:
   cardName: Freeze
   animation: {fileID: 7400000, guid: 2935d575ddb084d4c8ec515338c977e5, type: 2}
   description: Freezes all your opponents
-  time: 5
+  time: 3

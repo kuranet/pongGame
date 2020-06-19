@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 1986893425}
+  shoulBeStopped: 0
 --- !u!1 &27112338
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390370066519291170, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_TagString
+      value: AI
       objectReference: {fileID: 0}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
@@ -1661,6 +1667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 726261127}
+  shoulBeStopped: 0
 --- !u!1001 &1692713946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1753,6 +1760,21 @@ PrefabInstance:
       propertyPath: ScoreUI
       value: 
       objectReference: {fileID: 639993599}
+    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5362228
+      objectReference: {fileID: 0}
+    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.3476326
+      objectReference: {fileID: 0}
     - target: {fileID: 50031708191829112, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_Constraints
@@ -1772,21 +1794,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.5362228
-      objectReference: {fileID: 0}
-    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.7924528
-      objectReference: {fileID: 0}
-    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.3476326
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6384308969933b43bdff513e8ad6473, type: 3}
@@ -2025,6 +2032,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6390370066519291170, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_TagString
+      value: AI
+      objectReference: {fileID: 0}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2100,6 +2112,11 @@ PrefabInstance:
       propertyPath: ScoreUI
       value: 
       objectReference: {fileID: 1767683225}
+    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4155004838151207967, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_AutoTiling
@@ -2129,11 +2146,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SleepingMode
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114523753541204814, guid: e6384308969933b43bdff513e8ad6473, type: 3}
@@ -2749,7 +2761,7 @@ PrefabInstance:
     - target: {fileID: 2625390480969637875, guid: d3c5e75f3adf59546bba2c97e62646ad,
         type: 3}
       propertyPath: m_Size.x
-      value: 130
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 1291176403598218185, guid: d3c5e75f3adf59546bba2c97e62646ad,
         type: 3}
