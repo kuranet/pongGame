@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
 	
 	// timer execution
 	public float elapsedSeconds = 0;
-	bool running = false;
+	public bool running = false;
 	
 	// support for Finished property
 	bool started = false;
@@ -49,6 +49,7 @@ public class Timer : MonoBehaviour
 	public bool Finished
     {
 		get { return started && !running; } 
+		
 	}
 	
 	/// <summary>

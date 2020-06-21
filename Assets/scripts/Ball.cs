@@ -48,23 +48,23 @@ public class Ball : MonoBehaviour
             case "IntermediateWall":
                 {
                     float angle = Mathf.Acos((direction.x* collisionRotation.x + direction.y* collisionRotation.y)/Mathf.Sqrt(Mathf.Pow(direction.x,2)+ Mathf.Pow(direction.y, 2)));
-                    Debug.Log(angle);
+                    
                     if ((angle > (Mathf.PI - Mathf.PI / 18) && angle < (Mathf.PI  + Mathf.PI / 18)))
                     {
-                        angle *= 2;
-                        angle -= Mathf.PI / 36;
-                        //angle = - angle;
-                        Debug.Log("New angle : " + angle);
-                        direction.x = -( direction.x * Mathf.Cos(angle) - direction.y * Mathf.Sin(angle));
-                        direction.y = -(direction.x * Mathf.Sin(angle) + direction.y * Mathf.Cos(angle));
-                    }
-                    else if(angle > (-Mathf.PI / 18) && angle < (Mathf.PI / 18))
-                    {
-                        angle *= 2;
-                        angle += Mathf.PI / 36;
+                        //Debug.Log(direction.y);
+                        angle = (Mathf.PI - angle) * 2 + Mathf.PI / 36;
+                        if (direction.y*direction.x >= 0)
+                        {
                         direction.x = -(direction.x * Mathf.Cos(angle) - direction.y * Mathf.Sin(angle));
                         direction.y = -(direction.x * Mathf.Sin(angle) + direction.y * Mathf.Cos(angle));
+                        }
+                        else
+                        {
+                            direction.x = -(direction.x * Mathf.Cos(-angle) - direction.y * Mathf.Sin(-angle));
+                            direction.y = -(direction.x * Mathf.Sin(-angle) + direction.y * Mathf.Cos(-angle));
+                        }
                     }
+                    
                     else
                     {
                         direction = Vector3.Reflect(direction, collisionRotation);
@@ -95,17 +95,19 @@ public class Ball : MonoBehaviour
     }
     private void RespawnBall()
     {
-        ////Debug.Log("Previous is : " + previousMiss);
-        //// Starter position of the ball
+        //Debug.Log("Previous is : " + previousMiss);
+        // Starter position of the ball
         transform.position = new Vector3(-2.75f, 0, 0);
-        //// Randomly choose the direction of the ball
-        //float n = EventManager.Instance.Players.Count; // number of segments
-        //n = 2 * Mathf.PI / n; // segment angle representation
-        ////Debug.Log("Max angle of segment : " + n);
-        //float angle = Random.Range(Mathf.PI / 2 - n, Mathf.PI / 2 ); // generate random angle from 5 to n degrees
-        ////Debug.Log("Angle is : " + angle);
-        float angle = 0;
-        direction = new Vector2(Mathf.Cos((previousMiss + 1) * angle), Mathf.Sin((previousMiss + 1) * angle));
-        //Debug.Log("Direction vector : " + direction.x + "  ,  " + direction.y);
+        // Randomly choose the direction of the ball
+        float n = EventManager.Instance.Players.Count; // number of segments
+        n = 2 * Mathf.PI / n; // segment angle representation
+        //Debug.Log("Max angle of segment : " + n);
+        float angle = (Mathf.PI / 2 - n + Mathf.PI / 2)/2; // generate random angle from 5 to n degrees
+        angle = Random.Range(angle - Mathf.PI / 6, angle + Mathf.PI / 6);
+        Debug.Log("Angle is : " + angle*180/Mathf.PI);
+        angle -= previousMiss * n;
+
+        direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        Debug.Log("Direction vector : " + direction.x + "  ,  " + direction.y);
     }
 }

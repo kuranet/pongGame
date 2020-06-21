@@ -668,6 +668,7 @@ MonoBehaviour:
   - {fileID: 269175436}
   - {fileID: 28509238}
   - {fileID: 1892584115}
+  updating: 0
 --- !u!1001 &726261125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -728,7 +729,7 @@ PrefabInstance:
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
@@ -748,7 +749,7 @@ PrefabInstance:
     - target: {fileID: 6832476908310874439, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: numberOfPlayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6832476908310874439, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
@@ -1006,8 +1007,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Players:
-  - {fileID: 281193068}
   - {fileID: 1666361794}
+  - {fileID: 281193068}
   - {fileID: 15110152}
   endGame: {fileID: 3946339235927254916}
   score: {fileID: 3946339235927254917}
@@ -1741,7 +1742,7 @@ PrefabInstance:
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
@@ -1778,6 +1779,26 @@ PrefabInstance:
       propertyPath: ScoreUI
       value: 
       objectReference: {fileID: 639993599}
+    - target: {fileID: 6832476908310874439, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: numberOfPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5362228
+      objectReference: {fileID: 0}
+    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.3476326
+      objectReference: {fileID: 0}
     - target: {fileID: 50031708191829112, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_Constraints
@@ -1797,21 +1818,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.5362228
-      objectReference: {fileID: 0}
-    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.7924528
-      objectReference: {fileID: 0}
-    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.3476326
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6384308969933b43bdff513e8ad6473, type: 3}
@@ -1848,8 +1854,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1692713947}
   - {fileID: 726261126}
+  - {fileID: 1692713947}
   - {fileID: 1986893424}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2130,6 +2136,11 @@ PrefabInstance:
       propertyPath: ScoreUI
       value: 
       objectReference: {fileID: 1767683225}
+    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4155004838151207967, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_AutoTiling
@@ -2159,11 +2170,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SleepingMode
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114523753541204814, guid: e6384308969933b43bdff513e8ad6473, type: 3}
@@ -2514,6 +2520,11 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1062984792}
+    - target: {fileID: 1640322705393165338, guid: 489da5d3c36115444b7411614fab676b,
+        type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 724906688}
     - target: {fileID: 1640322705847159698, guid: 489da5d3c36115444b7411614fab676b,
         type: 3}
       propertyPath: m_Camera
@@ -2753,6 +2764,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -389.77057
       objectReference: {fileID: 0}
+    - target: {fileID: 748176709427571967, guid: 4a837f9656e96e34b977211d8f736664,
+        type: 3}
+      propertyPath: cardList
+      value: 
+      objectReference: {fileID: 724906688}
     - target: {fileID: 146344050958394036, guid: 4a837f9656e96e34b977211d8f736664,
         type: 3}
       propertyPath: m_Color.r

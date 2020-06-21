@@ -9,9 +9,11 @@ public class ChangeScene : MonoBehaviour
     int activeScene;
 
     public Ball ball;
+    public FindCard card;
     private void Awake()
     {
         ball.waiting = true;
+        card.updating = false;
         //scene = gameObject.transform.GetComponentsInChildren<GameObject>();
         activeScene = 0;
         scene[activeScene].SetActive(true);
@@ -25,6 +27,7 @@ public class ChangeScene : MonoBehaviour
         {
             gameObject.SetActive(false);
             ball.waiting = false;
+            card.updating = true;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -39,6 +42,7 @@ public class ChangeScene : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 ball.waiting = false;
+                card.updating = true;
             }
         }
 

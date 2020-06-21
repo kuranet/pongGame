@@ -3,37 +3,46 @@ using UnityEngine;
 
 public class FindCard : MonoBehaviour
 {
-    [SerializeField] List<GameObject> cardsInQueue;
+    [SerializeField] public List<GameObject> cardsInQueue;
     int indexOfUpdatingCard;
+    public bool updating = false;
     // Start is called before the first frame update
     void Start()
     {
         indexOfUpdatingCard = 0;
-        CardManager thisCard = cardsInQueue[indexOfUpdatingCard].GetComponent<CardManager>();
-        thisCard.status = "Updating";
-        RunTimer(thisCard);
+        //CardManager thisCard = cardsInQueue[indexOfUpdatingCard].GetComponent<CardManager>();
+        //thisCard.status = "Updating";
+        //RunTimer(thisCard);
     }
 
     // Update is called once per frame
     void Update()
     {
-        CardManager thisCard;
-        thisCard = cardsInQueue[indexOfUpdatingCard].GetComponent<CardManager>();
-        if (thisCard.waiting.GetComponent<CardTimer>().timer.Finished)
+        if (updating)
         {
-            for (int i = 0; i < cardsInQueue.Count; i++)
+            CardManager thisCard;
+            thisCard = cardsInQueue[indexOfUpdatingCard].GetComponent<CardManager>();            
+            if (thisCard.waiting.GetComponent<CardTimer>().timer.Finished)
             {
-                thisCard = cardsInQueue[i].GetComponent<CardManager>();
-                if (thisCard.status.Equals("Waiting"))
+                for (int i = 0; i < cardsInQueue.Count; i++)
                 {
-                    thisCard.status = "Updating";
-                    RunTimer(thisCard);
-                    indexOfUpdatingCard = i;
-                    Debug.Log(i);
-                    break;
+                    thisCard = cardsInQueue[i].GetComponent<CardManager>();
+                    if (thisCard.status.Equals("Waiting"))
+                    {
+                        thisCard.status = "Updating";
+                        RunTimer(thisCard);
+                        indexOfUpdatingCard = i;
+                        Debug.Log(i);
+                        break;
+                    }
                 }
-            }  
-        }        
+            }
+            else if (indexOfUpdatingCard == 0 && !thisCard.waiting.GetComponent<CardTimer>().timer.Running)
+            {
+                thisCard.status = "Updating";
+                RunTimer(thisCard);
+            }
+        }    
     }
     void RunTimer(CardManager card)
     {

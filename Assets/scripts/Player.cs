@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
+        
         float movement;
 
         if (transform.rotation.z == 0)
@@ -47,7 +48,6 @@ public class Player : MonoBehaviour
             transform.Translate(0, PlayersData.SPEED * movement * Time.deltaTime, 0);
         else
         {
-            Debug.Log(movement + "  :  " + (sideOfCollisison - pos));
             if (movement * (sideOfCollisison - transform.position.y) > 0)
                 transform.Translate(0, -0.3f * PlayersData.SPEED * movement * Time.deltaTime, 0);
             else

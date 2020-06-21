@@ -144,6 +144,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guide
       objectReference: {fileID: 0}
+    - target: {fileID: 1640322705393165336, guid: 489da5d3c36115444b7411614fab676b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1640322705393165339, guid: 489da5d3c36115444b7411614fab676b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -204,6 +209,11 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1555007700}
+    - target: {fileID: 1640322705393165338, guid: 489da5d3c36115444b7411614fab676b,
+        type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 767758580}
     - target: {fileID: 1640322705847037962, guid: 489da5d3c36115444b7411614fab676b,
         type: 3}
       propertyPath: m_IsActive
@@ -391,8 +401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Players:
-  - {fileID: 1857734305}
   - {fileID: 96958173}
+  - {fileID: 1857734305}
   endGame: {fileID: 394446545}
   score: {fileID: 394446546}
 --- !u!4 &254656150
@@ -1080,6 +1090,7 @@ MonoBehaviour:
   - {fileID: 1266305477}
   - {fileID: 509964033}
   - {fileID: 826463856}
+  updating: 0
 --- !u!4 &767758581
 Transform:
   m_ObjectHideFlags: 0
@@ -1919,8 +1930,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2059753071}
   - {fileID: 1843850065}
+  - {fileID: 2059753071}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1990,6 +2001,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114529719652128748, guid: 9248cc36235049c47b39edfb3f1d54c6,
+        type: 3}
+      propertyPath: waiting
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9248cc36235049c47b39edfb3f1d54c6, type: 3}
@@ -2217,7 +2233,7 @@ PrefabInstance:
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
@@ -2247,7 +2263,7 @@ PrefabInstance:
     - target: {fileID: 6832476908310874439, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: numberOfPlayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -2381,11 +2397,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3804979927073069118, guid: e6384308969933b43bdff513e8ad6473,
-        type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 2059753072}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2424,7 +2435,7 @@ PrefabInstance:
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2465128623705504630, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
@@ -2456,6 +2467,16 @@ PrefabInstance:
       propertyPath: ScoreUI
       value: 
       objectReference: {fileID: 1296971317}
+    - target: {fileID: 6832476908310874439, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: numberOfPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804979927073069118, guid: e6384308969933b43bdff513e8ad6473,
+        type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 2059753072}
     - target: {fileID: 212451745386543890, guid: e6384308969933b43bdff513e8ad6473,
         type: 3}
       propertyPath: m_Color.r

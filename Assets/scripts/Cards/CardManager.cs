@@ -52,4 +52,11 @@ public class CardManager : MonoBehaviour
         waiting.SetActive(false);
         activated.SetActive(true);
     }
+    public void RespawnCard()
+    {
+        waiting.SetActive(true);
+        waiting.GetComponent<CardTimer>().timer.running = false; 
+        activated.SetActive(false);
+        status = "Waiting";
+    }
 }
