@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class Ball : MonoBehaviour
 {
+    public bool waiting = true;
     Vector2 direction; // direction ball moving
     float speed = 0.1f; // moving speed
     int previousMiss = 0; // number of player who previous miss the ball
@@ -15,13 +16,16 @@ public class Ball : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Don't start the game if player hasn't started it
-        if (Input.GetKey(KeyCode.Space))
-            gameObject.tag = "Moving";
-        // Move the ball every frame
-        if (gameObject.CompareTag("Moving"))
+        if (!waiting)
         {
-            transform.Translate(direction * speed);
+            // Don't start the game if player hasn't started it
+            if (Input.GetKey(KeyCode.Space))
+                gameObject.tag = "Moving";
+            // Move the ball every frame
+            if (gameObject.CompareTag("Moving"))
+            {
+                transform.Translate(direction * speed);
+            }
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -93,7 +97,7 @@ public class Ball : MonoBehaviour
     {
         ////Debug.Log("Previous is : " + previousMiss);
         //// Starter position of the ball
-        transform.position = new Vector3(-3, 0, 0);
+        transform.position = new Vector3(-2.75f, 0, 0);
         //// Randomly choose the direction of the ball
         //float n = EventManager.Instance.Players.Count; // number of segments
         //n = 2 * Mathf.PI / n; // segment angle representation
