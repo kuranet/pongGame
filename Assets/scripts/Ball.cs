@@ -25,6 +25,7 @@ public class Ball : MonoBehaviour
             if (gameObject.CompareTag("Moving"))
             {
                 transform.Translate(direction * speed);
+                Debug.Log("X : " + direction.x + "  Y : " + direction.y);
             }
         }
     }

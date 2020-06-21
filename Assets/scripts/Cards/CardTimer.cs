@@ -12,7 +12,7 @@ public class CardTimer : MonoBehaviour
     private void Awake()
     {
         timer = gameObject.AddComponent<Timer>();
-        timer.Duration = 15;
+        timer.Duration = 5;
         parentCard = transform.parent.gameObject.GetComponent<CardManager>();
         waitingTime.text = "Waiting";
         

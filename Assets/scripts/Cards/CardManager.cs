@@ -29,8 +29,12 @@ public class CardManager : MonoBehaviour
                     {
                         FreezeScript scriptSettings = activated.transform.parent.gameObject.AddComponent<FreezeScript>();
                         scriptSettings.time = currentCard.time;
+                        break;
                     }
-                    break;
+                case "Wall": {
+                        WallScript scriptSettings = activated.transform.parent.gameObject.AddComponent<WallScript>();
+                        scriptSettings.time = currentCard.time;
+                        break; }
             }
 
             activated.SetActive(false);
@@ -41,8 +45,8 @@ public class CardManager : MonoBehaviour
     {
         status = "Active";
         
-        CardInfo activationInfo = activationInfoList[Random.Range(0, activationInfoList.Count - 1)];
-
+        CardInfo activationInfo = activationInfoList[Random.Range(0, activationInfoList.Count )];
+        //activationInfo = activationInfoList[1];
         currentCard = activationInfo;
 
         controller.anim = activationInfo.animation;
