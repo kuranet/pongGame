@@ -21,7 +21,10 @@ public class WallScript : MonoBehaviour
         Debug.Log("Start");
         wall = GameObject.FindGameObjectWithTag("IntermediateWall");
         wall = Instantiate(wall);
-        wall.transform.position = new Vector3(-2.75f, -2.75f, 0);
+        if (player.transform.rotation.z == 0)
+            wall.transform.position = new Vector3(-7f, 0, 0);
+        else
+            wall.transform.position = new Vector3(-2.75f, -2.75f, 0);
         wall.transform.rotation = player.transform.rotation;
         wall.transform.localScale = new Vector3(0.1f, 7.1f, 0);
        

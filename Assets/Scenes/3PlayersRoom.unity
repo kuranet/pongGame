@@ -623,6 +623,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639993597}
   m_CullTransparentMesh: 0
+--- !u!1 &711169676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7299953208597050997, guid: 9248cc36235049c47b39edfb3f1d54c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 734591997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &724906686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1450,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 734591997}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 711169676}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf360614ba90084459a5f08993451d0d, type: 3}
@@ -2850,6 +2856,11 @@ PrefabInstance:
       propertyPath: cardList
       value: 
       objectReference: {fileID: 724906688}
+    - target: {fileID: 748176709427571967, guid: 4a837f9656e96e34b977211d8f736664,
+        type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 711169676}
     - target: {fileID: 146344050958394036, guid: 4a837f9656e96e34b977211d8f736664,
         type: 3}
       propertyPath: m_Color.r

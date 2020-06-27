@@ -4,10 +4,15 @@ using UnityEngine;
 public class GameOverController : MonoBehaviour
 {
     public FindCard cardList;
-    private void Start()
+    public GameObject ball;
+    private void OnEnable()
     {
         cardList.updating = false;
+        ball.tag = "Waiting";
+        ball.GetComponent<Ball>().RespawnBall();
+        //ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
+    
     public void GoToMenu()
     {
         SceneManager.LoadScene("Menu");
